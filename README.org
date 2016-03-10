@@ -2,8 +2,46 @@
 * Using Glass as a Wearable Computer with Emacspeak
 
 * Warning
-This is a document in progress. It won't be finalized for awhile, but the current status is: *don't use it yet*.
+This is a document in progress. It won't be finalized for awhile, but
+the current status is: *don't use it yet*.
 
 * Goals
 
 ** TODO list goals
+
+* Downgrading to XE12
+
+* Setting up Android Studio for XE12
+I'll assume you already have Android Studio and the Android SDK. To
+build Glass apps for XE12, you'll need to install the SDK for API 15
+(Android 4.0.x) and also obtain the Glass Development Kit (GDK) Sneak
+Peek. The version of the GDK in the SDK manager is too new - it
+targets API 19, and APKs built with it won't install on XE12.
+
+To build an XE12 app, install the API 15 SDK and set that version as
+your build target. Then, download gdk.jar and add it manually as a
+dependency for your project.
+
+* Installing a Launcher
+I'm using Glass Launcher. It adds a live card next to your home card
+that lists your apps. The latest version is written against XE19 (or
+maybe later?).
+
+You can get an XE12-compatible version at [[https://github.com/justindriggers/Glass-Launcher/commit/8d404a064ed2a95144e6dae7a1d5408362e2d649][this commit]]. Clone the Glass
+Launcher repository, revert to that commit, load it up in Android
+Studio, and build the APK. Install the APK with:
+
+#+BEGIN_EXAMPLE
+adb install GlassLauncher.apk
+#+END_EXAMPLE
+
+Then start it for the first time:
+
+#+BEGIN_EXAMPLE
+adb shell
+am start -a android.intent.action.MAIN com.jtxdriggers.android.glass.glasslauncher/com.jtxdriggers.android.glass.glasslauncher.MainActivity
+#+END_EXAMPLE
+
+The launcher will start, and after this first invocation, it'll stay
+in your timeline.
+
