@@ -5,8 +5,22 @@
 This is a document in progress. It won't be finalized for awhile, but
 the current status is: *don't use it yet*.
 
+You also shouldn't attempt this unless you *already* are (1) an
+emacspeak user, and (2) pretty good with a Twiddler. Learning to use
+emacs with a Twiddler is *tough*. If you try to move too fast, you
+will get frustrated and give up. I gave up several times.
+
+Practice with the Twiddler on a typing tutor until you're comfortable
+typing sentences, then practice using the Twiddler to do your daily
+tasks in emacs on a regular computer. Then install emacspeak on your
+computer and use that for a month.
+
+The hardest part of making this whole thing work is getting adapted to
+the software. Don't take too many steps at once. I learned the hard
+way.
+
 * Downgrading to XE12
-I'll write more soon. For now, reference [[http://little418.com/2015/07/google-glass-and-the-twiddler-3.html][this blog post]].
+Reference [[http://little418.com/2015/07/google-glass-and-the-twiddler-3.html][this blog post]].
 
 * Setting up Android Studio for XE12
 I'll assume you already have Android Studio and the Android SDK. To
