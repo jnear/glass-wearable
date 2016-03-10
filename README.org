@@ -5,11 +5,8 @@
 This is a document in progress. It won't be finalized for awhile, but
 the current status is: *don't use it yet*.
 
-* Goals
-
-** TODO list goals
-
 * Downgrading to XE12
+I'll write more soon. For now, reference [[http://little418.com/2015/07/google-glass-and-the-twiddler-3.html][this blog post]].
 
 * Setting up Android Studio for XE12
 I'll assume you already have Android Studio and the Android SDK. To
@@ -19,7 +16,7 @@ Peek. The version of the GDK in the SDK manager is too new - it
 targets API 19, and APKs built with it won't install on XE12.
 
 To build an XE12 app, install the API 15 SDK and set that version as
-your build target. Then, download gdk.jar and add it manually as a
+your build target. Then, download [[https://github.com/jnear/glass-wearable/blob/master/files/gdk.jar][gdk.jar]] and add it manually as a
 dependency for your project.
 
 * Installing a Launcher
@@ -45,3 +42,5 @@ am start -a android.intent.action.MAIN com.jtxdriggers.android.glass.glasslaunch
 The launcher will start, and after this first invocation, it'll stay
 in your timeline.
 
+* Installing Busybox and su
+More later.
