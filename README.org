@@ -111,7 +111,7 @@ The goal here is to disable automatic brightness control (it never
 works right for me) and set brightness manually. On XE12, the
 Settings.apk app doesn't seem to work for this. I am using Glass
 Master Control, which has mostly disappeared from the web. I've
-mirrored a copy of the APK here. Installing it should yield a new set
+mirrored a copy of the APK [[https://github.com/jnear/glass-wearable/blob/master/files/GlassMasterControl.apk][here]]. Installing it should yield a new set
 of menus in the "OK Glass" card, one of which is for brightness. You
 can switch to manual brightness control and set the brightness level
 there.
