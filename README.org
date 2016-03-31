@@ -58,3 +58,60 @@ in your timeline.
 
 * Installing Busybox and su
 More later.
+* Installing a Terminal
+I'm using the [[https://github.com/jackpal/Android-Terminal-Emulator][Jackpal Terminal Emulator]] as a terminal. I have had a
+lot of trouble getting the CTRL and ALT keys to work correctly. In
+addition, the XE12 release of the Glass system image has a bug in the
+bluetooth system that results in key repeats with bluetooth HID
+keyboards. I've created a fork of the terminal ([[https://github.com/jnear/Android-Terminal-Emulator][here]]) to address these
+problems. You can download an APK of these [[https://github.com/jnear/Android-Terminal-Emulator/releases/tag/v1.0.71][here]]. Install the APK as
+follows, and it should show up in Glass Launcher.
+
+#+BEGIN_EXAMPLE
+adb install term-debug.apk
+#+END_EXAMPLE
+
+** Setting Terminal Options
+*** TODO Insert notes about changing settings file
+* Fixing Glass Settings
+** Changing Screen-On Timeout
+The Settings.apk menu for changing the screen-on timeout doesn't work
+in XE12. 15 seconds is not quite enough for my tastes. The simplest
+way to change this setting is to copy the settings database file to
+your computer, modify the setting, and copy the database back:
+
+#+BEGIN_EXAMPLE
+adb shell
+$ su
+# cp /data/data/com.android.providers.settings/databases/settings.db /sdcard
+# exit
+$ exit
+adb pull /sdcard/settings.db
+sqlitebrowser settings.db
+#+END_EXAMPLE
+
+In the sqlitebrowser window, go to the "Browse Data" tab, then select
+the "system" table. Find the "screen_off_timeout" row and change its
+value to something larger (I used 60000, for 60 seconds). Save the
+changes, then reinstall the database:
+
+#+BEGIN_EXAMPLE
+adb push settings.db /sdcard/
+adb shell
+$ su
+# cp /sdcard/settings.db /data/data/com.android.providers.settings/databases/
+# exit
+$ exit
+#+END_EXAMPLE
+
+Then reboot Glass and the screen should stay on a full minute.
+
+** Changing Brightness
+The goal here is to disable automatic brightness control (it never
+works right for me) and set brightness manually. On XE12, the
+Settings.apk app doesn't seem to work for this. I am using Glass
+Master Control, which has mostly disappeared from the web. I've
+mirrored a copy of the APK here. Installing it should yield a new set
+of menus in the "OK Glass" card, one of which is for brightness. You
+can switch to manual brightness control and set the brightness level
+there.
